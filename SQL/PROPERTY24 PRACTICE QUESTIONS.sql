@@ -31,7 +31,7 @@ Q3
  SELECT * FROM [housing_data].[dbo].[HousingData] WHERE BEDROOMS > 3
 
  Q7
- SELECT* FROM [housing_data].[dbo].[HousingData] WHERE PARKING > 2
+ SELECT* FROM [housing_data].[dbo].[HousingData] WHERE PARKING >= 2
 
  Q8
  SELECT* FROM [housing_data].[dbo].[HousingData] WHERE MONTHLY_REPAYMENT > 25000
@@ -67,6 +67,7 @@ Q3
       ,[Monthly_Repayment]
       ,[Total_Once_off_Costs]
       ,[Min_Gross_Monthly_Income] FROM [housing_data].[dbo].[HousingData] ORDER BY PROPERTY_PRICE DESC
+      select top 10* from [housing_data].[dbo].[HousingData] order by property_price desc
 
  Q16
  SELECT TOP (5) [PROPERTY_ID]
@@ -99,11 +100,34 @@ Q3
       Q18 
       SELECT * FROM [housing_data].[dbo].[HousingData] ORDER BY PROPERTY_PRICE DESC
       ANS= WESTERN CAPE
+      
+     more accurate
+     
+     select province, max(property price) as highest_price
+     from [housing_data].[dbo].[HousingData] 
+      group by province
+      order by highest_price desc
+
+      select province
+      property price from [housing_data].[dbo].[HousingData] 
+      order by property_price desc 
 
       Q19
-      SELECT* FROM [housing_data].[dbo].[HousingData] ORDER BY PROPERTY_PRICE ASC
+      SELECT* FROM [housing_data].[dbo].[HousingData] ORDER BY PROPERTY_PRICE ASc
       ANS= TZANEEN, WHITE RIVER,HARTEBEESPORT
+
+      select city, avg(property_price) as avg_price
+      from [housing_data].[dbo].[HousingData]
+      group by avg_price
+
+      select top 10 property_id, city, property_price from [housing_data].[dbo].[HousingData]
+      order by property_price asc
 
       Q20
       SELECT* FROM [housing_data].[dbo].[HousingData] WHERE PROPERTY_PRICE> 4000000 ORDER BY PROPERTY_PRICE
-      ANS= 32613
+      
+
+      select*
+      from [housing_data].[dbo].[HousingData]
+      where property_price > 4000000
+      order by min_gross_monthly_income asc
