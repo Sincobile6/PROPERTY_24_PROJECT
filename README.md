@@ -1,1 +1,1 @@
-ketros_property_PROJECT
+# PROPERTY_24_PROJECT
